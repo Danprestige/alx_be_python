@@ -5,26 +5,32 @@ def display_menu():
     print("3. View List")
     print("4. Exit")
 
+
 def main():
-    # Core requirement: start with an empty list named shopping_list
+    # Start with an empty list
     shopping_list = []
 
     while True:
+        # Display the menu
         display_menu()
+
+        # Choice input as a number
         try:
-            choice = int(input("Enter your choice: "))
+            choice = int(input("Enter your choice (1-4): "))
         except ValueError:
-            print("Invalid choice. Please enter a number.")
+            print("Invalid input. Please enter a number between 1 and 4.")
             continue
+
+        # Add an item
         if choice == 1:
-             item = input("Enter the item to add: ").strip()
+            item = input("Enter the item to add: ").strip()
             if item:
                 shopping_list.append(item)
                 print(f"'{item}' has been added to the shopping list.")
             else:
                 print("No item entered. Nothing added.")
 
-        # Remove item
+        # Remove an item
         elif choice == 2:
             if not shopping_list:
                 print("Your shopping list is empty. Nothing to remove.")
@@ -36,7 +42,7 @@ def main():
             else:
                 print(f"'{item}' not found in the shopping list.")
 
-        # View list
+        # View the shopping list
         elif choice == 3:
             if not shopping_list:
                 print("Your shopping list is empty.")
@@ -50,6 +56,7 @@ def main():
             print("Goodbye!")
             break
 
+        # Invalid choice
         else:
             print("Invalid choice. Please enter a number between 1 and 4.")
 
